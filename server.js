@@ -5,24 +5,22 @@
 const express = require('express')
 const bodyParser = require("body-parser")
 const cors = require("cors")
+const useragent = require("express-useragent");
 
 const app = express()
 app.use(bodyParser.json())
 app.use(cors())
-
+app.use(useragent.express())
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'))
 
 var api = '/api/whoami';
 
 app.get(api, function(request,response,next){
   var language = request.acceptsLanguages();
-  var software;
+  var software = "OS: "+ request.useragent.os +" ,";
   var ipaddress = request.ip;
-  response.json({'ipaddress':ipaddress, 'language':language[0]});
+  response.json({'ipaddress':ipaddress, 'language':language[0], 'software':software});
 })
 
 

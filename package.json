@@ -12,7 +12,8 @@
     "express": "^4.16.3",
     "cors": "^2.8.4",
     "body-parser": "^1.18.2",
-    "nodemon": "^1.17.2"
+    "nodemon": "^1.17.2",
+    "express-useragent": "^1.0.12"
   },
   "engines": {
     "node": "9.x"
